@@ -62,7 +62,7 @@ export default function ArtworkCard({ artwork, onZoom }: ArtworkCardProps) {
           </div>
         </div>
       ) : (
-        <div className="w-full h-full p-2 flex items-start pointer-events-none">
+                  <div className="w-full h-full flex items-start pointer-events-none">
           <h3 className="text-xs md:text-sm leading-none">
             {artwork.title}
           </h3>

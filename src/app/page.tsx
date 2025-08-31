@@ -179,8 +179,8 @@ export default function Home() {
             <img
               src={urlFor(zoomedArtwork.mainImage).width(1200).url()}
               alt={zoomedArtwork.title}
-              className="max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto mix-blend-color"
-              style={{ maxWidth: '95vw', maxHeight: '90vh', objectFit: 'contain' }}
+              className="max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto mix-blend-color shadow-none"
+              style={{ maxWidth: '95vw', maxHeight: '90vh', objectFit: 'contain', boxShadow: 'none' }}
             />
           </div>
           
@@ -195,8 +195,8 @@ export default function Home() {
             <img
               src={urlFor(zoomedArtwork.mainImage).width(1200).url()}
               alt={zoomedArtwork.title}
-              className="max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto transition-opacity duration-300 ease-in-out"
-              style={{ maxWidth: '95vw', maxHeight: '90vh', objectFit: 'contain' }}
+              className="max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto transition-opacity duration-300 ease-in-out shadow-none"
+              style={{ maxWidth: '95vw', maxHeight: '90vh', objectFit: 'contain', boxShadow: 'none' }}
             />
           </div>
         </>
