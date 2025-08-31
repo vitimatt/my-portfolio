@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { client, urlFor } from '../sanity/lib/client'
+import { client } from '../sanity/lib/client'
+import { urlFor } from '../lib/sanityClient'
 import ArtworkCard from './components/ArtworkCard'
 import './portfolio.css'
 
@@ -20,7 +21,7 @@ export default function Home() {
   const [artworks, setArtworks] = useState<Artwork[]>([])
   const [loading, setLoading] = useState(true)
   const [imagesLoaded, setImagesLoaded] = useState(false)
-  const [loadedImages, setLoadedImages] = useState(0)
+
 
   useEffect(() => {
     const fetchArtworks = async () => {
@@ -61,14 +62,13 @@ export default function Home() {
 
       const handleImageLoad = () => {
         loadedCount++
-        setLoadedImages(loadedCount)
         
-                 if (loadedCount === totalImages) {
-           // All images loaded, trigger fade in after a delay to ensure it starts after info card
-           setTimeout(() => {
-             setImagesLoaded(true)
-           }, 1000) // 300ms (info card delay) + 700ms additional delay
-         }
+        if (loadedCount === totalImages) {
+          // All images loaded, trigger fade in after a delay to ensure it starts after info card
+          setTimeout(() => {
+            setImagesLoaded(true)
+          }, 1000) // 300ms (info card delay) + 700ms additional delay
+        }
       }
 
       // Preload all images
@@ -76,7 +76,7 @@ export default function Home() {
         const img = new Image()
         img.onload = handleImageLoad
         img.onerror = handleImageLoad // Count errors as loaded to avoid hanging
-        img.src = urlFor(artwork.mainImage).width(400).url()
+        img.src = urlFor(artwork.mainImage!).width(400).url()
       })
     }
   }, [loading, artworks])
@@ -105,7 +105,7 @@ export default function Home() {
 
           {/* Artwork Cards - Fade in after images load */}
           {artworks.length > 0 ? (
-            artworks.map((artwork, index) => (
+            artworks.map((artwork) => (
               <div
                 key={artwork._id}
                 className={`transition-opacity duration-700 ease-in-out ${

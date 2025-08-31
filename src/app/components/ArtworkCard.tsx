@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { urlFor } from '../../sanity/lib/client'
+import { urlFor } from '../../lib/sanityClient'
 
 interface ArtworkCardProps {
   artwork: {
@@ -54,7 +54,7 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
         {showImage && hasImage ? (
           <div className="w-full h-full relative">
             <img
-              src={urlFor(artwork.mainImage).width(400).url()}
+              src={urlFor(artwork.mainImage!).width(400).url()}
               alt={artwork.title}
               className="w-full h-auto max-h-full object-contain object-top pointer-events-none"
             />
@@ -84,7 +84,7 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
         style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
       >
         <img
-          src={urlFor(artwork.mainImage).width(1200).url()}
+          src={urlFor(artwork.mainImage!).width(1200).url()}
           alt={artwork.title}
           className="max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto mix-blend-color"
           style={{ maxHeight: '90vh', objectFit: 'contain' }}
@@ -105,7 +105,7 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
         style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
       >
         <img
-          src={urlFor(artwork.mainImage).width(1200).url()}
+          src={urlFor(artwork.mainImage!).width(1200).url()}
           alt={artwork.title}
           className={`max-w-[95vw] md:max-w-[70vw] max-h-[90vh] object-contain mx-auto transition-opacity duration-300 ease-in-out ${
             isZoomed && hasImage ? 'opacity-100 delay-[1200ms]' : 'opacity-0'

@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Environment Variables
+
+This project requires the following environment variables to be set:
+
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`: Your Sanity project ID
+- `NEXT_PUBLIC_SANITY_DATASET`: Your Sanity dataset name (usually "production")
+- `NEXT_PUBLIC_SANITY_API_VERSION`: API version (default: "2025-08-31")
+
+### For Netlify Deployment
+
+1. Go to your Netlify dashboard
+2. Navigate to Site settings > Environment variables
+3. Add the following environment variables:
+   - `NEXT_PUBLIC_SANITY_PROJECT_ID` = your_sanity_project_id
+   - `NEXT_PUBLIC_SANITY_DATASET` = production
+   - `NEXT_PUBLIC_SANITY_API_VERSION` = 2025-08-31
+
+Make sure to redeploy your site after adding the environment variables.
