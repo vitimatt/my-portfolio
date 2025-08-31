@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Tempo Regular';
+  src: url('/fonts/tempo-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  
+}
+
+/* Remove all default browser margins and padding */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Portfolio-specific styling */
+.portfolio-container {
+  font-family: 'Tempo Regular', sans-serif;
+  font-size: 11pt;
+  color: #000000;
+  background: #ffffff;
+  font-weight: normal;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.portfolio-container * {
+  font-family: 'Tempo Regular', sans-serif;
+  font-size: 11pt;
+  color: #000000;
+  font-weight: normal;
+}
+
+/* Remove page margins */
+.portfolio-container main {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.portfolio-container .max-w-7xl {
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+/* Remove grid gaps on desktop, but allow responsive gaps on mobile */
+.portfolio-container .grid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Only remove gaps on larger screens */
+@media (min-width: 768px) {
+  .portfolio-container .grid {
+    gap: 0 !important;
+  }
+}
+
+/* Contact information specific styling - remove padding from individual elements */
+.portfolio-container .aspect-\[2\/3\] h1,
+.portfolio-container .aspect-\[2\/3\] p {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 11pt !important;
+}
+
+/* Contact info wrapper div - ensure it has padding (only for first grid item) */
+.portfolio-container .grid > div:first-child .p-2 {
+  padding: 0.5rem !important;
+}
+
+/* Fix card title spacing - add back internal padding */
+.portfolio-container .aspect-\[2\/3\] .flex h3 {
+  margin: 0 !important;
+  padding: 0.5rem !important;
+  line-height: 1.1 !important;
+}
+
+/* Override any existing color classes to use black text */
+.portfolio-container .text-gray-900,
+.portfolio-container .text-gray-700,
+.portfolio-container .text-gray-600,
+.portfolio-container .text-gray-500,
+.portfolio-container .text-gray-400,
+.portfolio-container .text-gray-300,
+.portfolio-container .text-gray-200,
+.portfolio-container .text-gray-100 {
+  color: #000000 !important;
+}
+
+/* Override font-weight classes to use normal weight */
+.portfolio-container .font-bold,
+.portfolio-container .font-medium,
+.portfolio-container .font-semibold,
+.portfolio-container h1,
+.portfolio-container h2,
+.portfolio-container h3,
+.portfolio-container h4,
+.portfolio-container h5,
+.portfolio-container h6 {
+  font-weight: normal !important;
+}
+
+/* Ensure all backgrounds are white */
+.portfolio-container .bg-gray-100,
+.portfolio-container .bg-gray-200,
+.portfolio-container .bg-gray-300,
+.portfolio-container .bg-gray-400,
+.portfolio-container .bg-gray-500,
+.portfolio-container .bg-gray-600,
+.portfolio-container .bg-gray-700,
+.portfolio-container .bg-gray-800,
+.portfolio-container .bg-gray-900 {
+  background-color: #ffffff !important;
+}
