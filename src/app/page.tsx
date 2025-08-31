@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { client } from '../sanity/lib/client'
 import { urlFor } from '../lib/sanityClient'
 import ArtworkCard from './components/ArtworkCard'
@@ -27,13 +26,6 @@ export default function Home() {
   useEffect(() => {
     const fetchArtworks = async () => {
       try {
-        // Check if environment variables are set
-        if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-          console.error('Missing NEXT_PUBLIC_SANITY_PROJECT_ID environment variable')
-          setLoading(false)
-          return
-        }
-
         const query = `*[_type == "artwork"] {
           _id,
           title,
@@ -108,9 +100,6 @@ export default function Home() {
               <p className="text-xs md:text-sm leading-none">Artist and Teacher</p>
               <p className="text-xs md:text-sm leading-none">+39 3490867743</p>
               <p className="text-xs md:text-sm leading-none">info@marcobasta.com</p>
-              <Link href="/studio" className="text-xs md:text-sm leading-none text-blue-600 hover:text-blue-800 mt-2 block">
-                Manage Content →
-              </Link>
             </div>
           </div>
 
@@ -126,14 +115,6 @@ export default function Home() {
                 <ArtworkCard artwork={artwork} />
               </div>
             ))
-          ) : !process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ? (
-            <div className={`col-span-1 md:col-span-5 text-center py-8 transition-opacity duration-700 ease-in-out ${
-              !loading ? 'opacity-100' : 'opacity-0'
-            }`}>
-              <p className="text-red-600 font-semibold">Configuration Error</p>
-              <p className="text-sm text-gray-600 mt-2">Missing Sanity environment variables. Please check your Netlify configuration.</p>
-              <p className="text-xs text-gray-500 mt-1">Required: NEXT_PUBLIC_SANITY_PROJECT_ID</p>
-            </div>
           ) : (
             <div className={`col-span-1 md:col-span-5 text-center py-8 transition-opacity duration-700 ease-in-out ${
               imagesLoaded ? 'opacity-100' : 'opacity-0'
