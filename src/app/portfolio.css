@@ -50,7 +50,7 @@ html, body {
 }
 
 /* Only remove gaps on larger screens */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .portfolio-container .grid {
     gap: 0 !important;
   }
